@@ -34,6 +34,8 @@ export default {
   --color-base-2: #a9a9a9;
   --color-base-3: #828282;
   --color-base-4: #333333;
+  --color-primary: #2F80ED;
+  --box-shadow-01: 0px 2px 6px rgba(127, 177, 243, 0.4);
 }
 
 ul {
@@ -51,6 +53,17 @@ textarea {
   resize: none;
 }
 
+fieldset {
+  border: 0;
+}
+
+.app {
+  width: 100%;
+  max-width: 600px;
+  height: 60%;
+}
+
+/* Default Styles */
 .container {
   width: 100%;
   max-width: 1280px;
@@ -65,9 +78,7 @@ textarea {
   position: relative;
 }
 
-.app {
-  width: 100%;
-  max-width: 600px;
-  height: 60%;
+.mb-40 {
+  margin-bottom: 40px;
 }
 </style>
