@@ -22,7 +22,13 @@ export default {
   color: var(--color-white);
   padding: 20px 40px;
   border-radius: 12px;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-02);
   box-shadow: var(--box-shadow-01);
+  transition: .3s;
+}
+
+.button:hover {
+  background-color: var(--color-primary-01);
+  transform: translateY(-2px);
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mt-40">
     <fieldset class="fieldset" v-for="task in tasks" :key="task.id">
       <input
         class="check"
@@ -9,7 +9,7 @@
         :value="task.value"
         :checked="task.completed"
       />
-      <label class="label" :for="task.id">{{ task.value }}</label>
+      <label class="label" :class="{'task--completed': task.completed}" :for="task.id">{{ task.value }}</label>
     </fieldset>
   </div>
 </template>
@@ -30,11 +30,11 @@ export default {
 }
 
 .fieldset:first-child {
-  margin: 0  0 30px 0;
+  margin: 0 0 30px 0;
 }
 
 .fieldset:last-child {
-  margin: 30px  0 0 0;
+  margin: 30px 0 0 0;
 }
 
 .check {
@@ -47,5 +47,9 @@ export default {
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-black);
+}
+
+.task--completed {
+  text-decoration: line-through;
 }
 </style>

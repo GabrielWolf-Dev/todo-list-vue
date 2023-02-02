@@ -35,7 +35,8 @@ export default {
   --color-base-2: #a9a9a9;
   --color-base-3: #828282;
   --color-base-4: #333333;
-  --color-primary: #2F80ED;
+  --color-primary-01: #4b97fa;
+  --color-primary-02: #2f80ed;
   --box-shadow-01: 0px 2px 6px rgba(127, 177, 243, 0.4);
 }
 
@@ -77,6 +78,10 @@ fieldset {
   text-align: center;
   gap: 60px;
   position: relative;
+}
+
+.mt-40 {
+  margin-top: 40px;
 }
 
 .mb-40 {

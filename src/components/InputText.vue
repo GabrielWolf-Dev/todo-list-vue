@@ -31,11 +31,12 @@ export default {
 <style scoped>
 .input {
   width: 100%;
-  max-width: 500px;
+  max-width: 400px;
   height: 60px;
+  display: inline-block;
   border-radius: 12px;
   border: 1px solid var(--color-base-1);
   padding-left: 12px;
-  outline-color: var(--color-primary);
+  outline-color: var(--color-primary-02);
 }
 </style>

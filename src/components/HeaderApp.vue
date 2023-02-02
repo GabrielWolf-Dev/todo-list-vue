@@ -3,9 +3,9 @@
     <h1 class="title mb-40">#todo</h1>
 
     <ul class="list-options">
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'All'}">All</li>
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Active'}">Active</li>
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Completed'}">Completed</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'All'}" data-option="All">Todos</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Active'}" data-option="Active">Ativos</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Completed'}" data-option="Completed">Completos</li>
     </ul>
   </header>
 </template>
@@ -20,9 +20,9 @@ export default {
   },
   methods: {
     handleOption(event) {
-      const { textContent } = event.currentTarget;
+      const { option } = event.currentTarget.dataset;
       
-      this.$store.dispatch("filterTasks", textContent);
+      this.$store.dispatch("filterTasks", option);
     },
   },
   watch: {
@@ -51,7 +51,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-content: center;
-  margin: 0 38px;
+  padding: 0 38px;
   border-bottom: 1px solid var(--color-base-1);
 }
 
@@ -65,6 +65,6 @@ export default {
 }
 
 .item-option--active {
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--color-primary-02);
 }
 </style>

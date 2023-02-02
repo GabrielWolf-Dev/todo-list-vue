@@ -29,7 +29,6 @@ export default new Vuex.Store({
         this.state.optionTasks !== "All" ? `?completed=${isCompleted}` : "";
       const response = await fetch(`${this.state.default_path}${query_path}`);
       const data = await response.json();
-      console.log(data);
 
       context.commit("FETCH_API", data);
     },
