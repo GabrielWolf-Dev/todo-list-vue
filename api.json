@@ -1,15 +1,18 @@
 {
   "todos": [
     {
-      "todo": "Fazer curso",
-      "completed": false
-    },
-    {
-      "todo": "Fazer exercícios",
+      "id": 1,
+      "value": "Fazer exercícios",
       "completed": true
     },
     {
-      "todo": "Desevolver projetos práticos",
+      "id": 2,
+      "value": "Fazer cursos",
+      "completed": false
+    },
+    {
+      "id": 2,
+      "value": "Desevolver projetos práticos",
       "completed": false
     }
   ]
