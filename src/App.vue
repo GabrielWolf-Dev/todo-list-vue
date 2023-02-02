@@ -1,7 +1,7 @@
 <template>
-  <div class="container" id="app">
+  <div class="container">
     <HeaderApp />
-    <main>
+    <main class="app">
       <router-view />
     </main>
     <FooterApp />
@@ -63,5 +63,11 @@ textarea {
   text-align: center;
   gap: 60px;
   position: relative;
+}
+
+.app {
+  width: 100%;
+  max-width: 600px;
+  height: 60%;
 }
 </style>
