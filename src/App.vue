@@ -1,10 +1,24 @@
 <template>
-  <div id="app">
+  <div class="container" id="app">
+    <HeaderApp />
     <main>
       <router-view />
     </main>
+    <FooterApp />
   </div>
 </template>
+
+<script>
+import HeaderApp from "@/components/HeaderApp.vue";
+import FooterApp from "@/components/FooterApp.vue";
+
+export default {
+  components: {
+    HeaderApp,
+    FooterApp,
+  },
+};
+</script>
 
 <style>
 * {
@@ -35,5 +49,19 @@ input[type="submit"] {
 
 textarea {
   resize: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 60px;
+  position: relative;
 }
 </style>
