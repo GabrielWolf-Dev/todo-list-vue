@@ -8,6 +8,7 @@
         :id="task.id"
         :value="task.value"
         :checked="task.completed"
+        @change="checkTask"
       />
       <label class="label" :class="{'task--completed': task.completed}" :for="task.id">{{ task.value }}</label>
     </fieldset>
@@ -18,6 +19,12 @@
 export default {
   name: "TaskList",
   props: ["tasks"],
+  methods: {
+    checkTask(event) {
+      const { id, checked } = event.target;
+      console.log(id, checked);
+    },
+  }
 };
 </script>
 
