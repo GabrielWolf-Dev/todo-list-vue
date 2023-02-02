@@ -30,6 +30,7 @@ export default {
 
 :root {
   --color-white: #ffffff;
+  --color-black: #000000;
   --color-base-1: #bdbdbd;
   --color-base-2: #a9a9a9;
   --color-base-3: #828282;

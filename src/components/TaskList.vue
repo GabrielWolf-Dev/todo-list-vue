@@ -1,14 +1,15 @@
 <template>
   <div>
-    <fieldset v-for="task in tasks" :key="task.id">
-      <label :for="task.id">{{ task.value }}</label>
+    <fieldset class="fieldset" v-for="task in tasks" :key="task.id">
       <input
+        class="check"
         type="checkbox"
         :name="task.task"
         :id="task.id"
         :value="task.value"
         :checked="task.completed"
       />
+      <label class="label" :for="task.id">{{ task.value }}</label>
     </fieldset>
   </div>
 </template>
@@ -20,4 +21,31 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.fieldset {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.fieldset:first-child {
+  margin: 0  0 30px 0;
+}
+
+.fieldset:last-child {
+  margin: 30px  0 0 0;
+}
+
+.check {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-black);
+}
+</style>
