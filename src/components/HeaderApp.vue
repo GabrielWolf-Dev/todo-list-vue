@@ -3,16 +3,33 @@
     <h1 class="title mb-40">#todo</h1>
 
     <ul class="list-options">
-      <li class="item-option">All</li>
-      <li class="item-option">Active</li>
-      <li class="item-option">Completed</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'All'}">All</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Active'}">Active</li>
+      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Completed'}">Completed</li>
     </ul>
   </header>
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   name: "HeaderApp",
+  computed: {
+    ...mapState(["optionTasks"]),
+  },
+  methods: {
+    handleOption(event) {
+      const { textContent } = event.currentTarget;
+      
+      this.$store.dispatch("filterTasks", textContent);
+    },
+  },
+  watch: {
+    optionTasks() {
+      this.$store.dispatch("fetchAPI");
+    }
+  },
 };
 </script>
 
