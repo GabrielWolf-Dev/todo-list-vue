@@ -1,10 +1,21 @@
 <template>
-  <div class="todos">Hello world!</div>
+  <div class="todos">
+    Hello world!
+    <InputText name="task" id="task" placeholder="Adicionar uma tarefa" />
+    <ButtonSubmit text="Adicionar" />
+  </div>
 </template>
 
 <script>
+import ButtonSubmit from "@/components/ButtonSubmit.vue";
+import InputText from "@/components/InputText.vue";
+
 export default {
   name: "TodosView",
+  components: {
+    ButtonSubmit,
+    InputText,
+  }
 };
 </script>
 
