@@ -1,0 +1,16 @@
+{
+  "todos": [
+    {
+      "todo": "Fazer curso",
+      "completed": false
+    },
+    {
+      "todo": "Fazer exercícios",
+      "completed": true
+    },
+    {
+      "todo": "Desevolver projetos práticos",
+      "completed": false
+    }
+  ]
+}
