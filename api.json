@@ -3,17 +3,17 @@
     {
       "id": 1,
       "value": "Fazer exercicios",
-      "completed": true,
+      "completed": true
     },
     {
       "id": 2,
       "value": "Fazer cursos",
-      "completed": false,
+      "completed": false
     },
     {
       "id": 3,
       "value": "Desevolver projetos práticos",
-      "completed": false,
+      "completed": false
     }
   ]
 }
