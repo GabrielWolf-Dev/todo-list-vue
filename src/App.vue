@@ -4,6 +4,7 @@
     <main class="app">
       <router-view />
     </main>
+    <ErrorMessageVue />
     <FooterApp />
   </div>
 </template>
@@ -11,11 +12,13 @@
 <script>
 import HeaderApp from "@/components/HeaderApp.vue";
 import FooterApp from "@/components/FooterApp.vue";
+import ErrorMessageVue from "@/components/ErrorMessage.vue";
 
 export default {
   components: {
     HeaderApp,
     FooterApp,
+    ErrorMessageVue,
   },
 };
 </script>
@@ -37,7 +40,10 @@ export default {
   --color-base-4: #333333;
   --color-primary-01: #4b97fa;
   --color-primary-02: #2f80ed;
+  --color-error: #ed2f2f;
+
   --box-shadow-01: 0px 2px 6px rgba(127, 177, 243, 0.4);
+  --box-shadow-error: 0px 2px 6px rgba(243, 127, 127, 0.4);
 }
 
 ul {

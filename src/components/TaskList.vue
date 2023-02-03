@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapActions } from "vuex";
 
 import { api } from "@/helpers/api";
 
@@ -30,20 +30,30 @@ export default {
   props: ["tasks"],
   methods: {
     ...mapMutations(["UPDATE_TASKS"]),
+    ...mapActions(["setError"]),
     async checkTask(event) {
       const { id, checked } = event.target;
       const convertId = Number(id);
       const [objTask] = this.tasks.filter((task) => task.id === convertId);
       const otherTasks = this.tasks.filter((task) => task.id !== convertId);
 
-      const { data } = await api.put(id, {
-        ...objTask,
-        completed: checked,
-      });
+      try {
+        const { data } = await api.put(id, {
+          ...objTask,
+          completed: checked,
+        });
 
-      this.UPDATE_TASKS([...otherTasks, data]);
-      if (this.$store.state.optionTasks !== "All")
-        this.$store.dispatch("removeOldTasks", otherTasks);
+        this.UPDATE_TASKS([...otherTasks, data]);
+        if (this.$store.state.optionTasks !== "All")
+          this.$store.dispatch("removeOldTasks", otherTasks);
+      } catch (error) {
+        this.setError("[ERRO NO SERVIDOR] Não foi possível trocar o estado da tarefa");
+        console.error(error.message);
+
+        setTimeout(() => {
+          this.setError(null);
+        }, 3000);
+      }
     },
   },
 };

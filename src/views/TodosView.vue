@@ -33,19 +33,28 @@ export default {
     ...mapState(["tasks"]),
   },
   methods: {
-    ...mapActions(["fetchAPI", "updateTasks"]),
+    ...mapActions(["fetchAPI", "updateTasks", "setError"]),
     async newTodo(event) {
       const form = new FormData(event.target);
       const todo = form.get("addTodo");
       const id = this.tasks.length + 1;
 
-      const { data } = await api.post({
-        id: id,
-        value: todo,
-        completed: false,
-        task: `task-${id}`,
-      });
-      this.updateTasks([...this.tasks, data]);
+      try {
+        const { data } = await api.post({
+          id: id,
+          value: todo,
+          completed: false,
+          task: `task-${id}`,
+        });
+        this.updateTasks([...this.tasks, data]);
+      } catch (error) {
+        this.setError("[ERRO NO SERVIDOR] Não foi possível adicionar uma nova tarefa");
+        console.error(error.message);
+
+        setTimeout(() => {
+        this.setError(null);
+        }, 3000);
+      }
     },
   },
   created() {

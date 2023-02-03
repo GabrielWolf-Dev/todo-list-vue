@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     optionTasks: "All",
     tasks: [],
+    error: null,
   },
   getters: {},
   mutations: {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     UPDATE_TASKS(state, payload) {
       state.tasks = payload;
+    },
+    SET_ERROR(state, payload) {
+      state.error = payload;
     },
   },
   actions: {
@@ -37,13 +41,26 @@ export default new Vuex.Store({
       context.commit("UPDATE_TASKS", filterTasks);
     },
     async fetchAPI(context) {
-      const isCompleted =
-        this.state.optionTasks !== "Active" && this.state.optionTasks !== "All";
-      const query_path =
-        this.state.optionTasks !== "All" ? `?completed=${isCompleted}` : "";
-      const { data } = await api.get(query_path);
+      try {
+        const isCompleted =
+          this.state.optionTasks !== "Active" &&
+          this.state.optionTasks !== "All";
+        const query_path =
+          this.state.optionTasks !== "All" ? `?completed=${isCompleted}` : "";
+        const { data } = await api.get(query_path);
 
-      context.commit("UPDATE_TASKS", data);
+        context.commit("UPDATE_TASKS", data);
+      } catch (error) {
+        context.commit("SET_ERROR", "Não foi possível consumir os dados no servidor");
+        console.error(error.message);
+
+        setTimeout(() => {
+          context.commit("SET_ERROR", null);
+        }, 3000);
+      }
+    },
+    setError(context, payload) {
+      context.commit("SET_ERROR", payload);
     },
   },
   modules: {},
