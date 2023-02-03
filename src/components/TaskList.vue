@@ -5,7 +5,7 @@
         <input
           class="check"
           type="checkbox"
-          :name="task.task"
+          :name="'task' + task.id"
           :id="task.id"
           :value="task.value"
           :checked="task.completed"

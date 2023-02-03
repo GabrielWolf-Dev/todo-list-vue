@@ -54,14 +54,11 @@ export default {
     async newTodo(event) {
       const form = new FormData(event.target);
       const todo = form.get("addTodo");
-      const id = this.tasks.length + 1;
 
       try {
         const { data } = await api.post({
-          id: id,
           value: todo,
           completed: false,
-          task: `task-${id}`,
         });
         this.updateTasks([...this.tasks, data]);
 
