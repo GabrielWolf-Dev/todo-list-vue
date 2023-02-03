@@ -47,12 +47,17 @@ export default {
           task: `task-${id}`,
         });
         this.updateTasks([...this.tasks, data]);
+
+        event.target.reset();
+        event.target[1].focus();
       } catch (error) {
-        this.setError("[ERRO NO SERVIDOR] Não foi possível adicionar uma nova tarefa");
+        this.setError(
+          "[ERRO NO SERVIDOR] Não foi possível adicionar uma nova tarefa"
+        );
         console.error(error.message);
 
         setTimeout(() => {
-        this.setError(null);
+          this.setError(null);
         }, 3000);
       }
     },
