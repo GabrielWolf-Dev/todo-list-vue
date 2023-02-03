@@ -6,6 +6,7 @@
     :id="id"
     :placeholder="placeholder"
     v-model="todo"
+    required
   />
 </template>
 
