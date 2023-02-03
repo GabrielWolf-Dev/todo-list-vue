@@ -11,6 +11,10 @@ export default {
       required: true,
       default: "Add",
     },
+    submitForm: {
+      type: Function,
+      require: true,
+    },
   },
 };
 </script>
@@ -24,7 +28,7 @@ export default {
   border-radius: 12px;
   background-color: var(--color-primary-02);
   box-shadow: var(--box-shadow-01);
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .button:hover {

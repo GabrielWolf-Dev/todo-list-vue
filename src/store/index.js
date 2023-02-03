@@ -22,6 +22,9 @@ export default new Vuex.Store({
     filterTasks(context, payload) {
       context.commit("FILTER_TASKS", payload);
     },
+    updateTasks(context, payload) {
+      context.commit("UPDATE_TASKS", payload);
+    },
     removeOldTasks(context, payload) {
       let filterTasks;
 

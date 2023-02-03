@@ -10,6 +10,9 @@ export const api = {
   get(endpoint) {
     return axiosInstance.get(endpoint);
   },
+  post(body) {
+    return axiosInstance.post("", body);
+  },
   put(endpoint, body) {
     return axiosInstance.put(endpoint, body);
   },

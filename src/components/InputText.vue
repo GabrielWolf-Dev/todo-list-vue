@@ -5,12 +5,18 @@
     :name="name"
     :id="id"
     :placeholder="placeholder"
+    v-model="todo"
   />
 </template>
 
 <script>
 export default {
   name: "InputText",
+  data() {
+    return {
+      todo: "",
+    };
+  },
   props: {
     name: {
       type: String,
@@ -23,7 +29,7 @@ export default {
     placeholder: {
       type: String,
       default: "add details",
-    }
+    },
   },
 };
 </script>

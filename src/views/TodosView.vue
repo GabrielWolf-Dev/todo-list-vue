@@ -1,6 +1,6 @@
 <template>
   <div class="todos">
-    <form>
+    <form @submit.prevent="newTodo">
       <fieldset class="add-todo">
         <InputText
           name="addTodo"
@@ -9,13 +9,14 @@
         />
         <ButtonSubmit text="Adicionar" />
       </fieldset>
-      <TaskList :tasks="tasks" />
     </form>
+    <TaskList :tasks="tasks" />
   </div>
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
+import { api } from "@/helpers/api";
 
 import InputText from "@/components/InputText.vue";
 import ButtonSubmit from "@/components/ButtonSubmit.vue";
@@ -32,7 +33,20 @@ export default {
     ...mapState(["tasks"]),
   },
   methods: {
-    ...mapActions(["fetchAPI"]),
+    ...mapActions(["fetchAPI", "updateTasks"]),
+    async newTodo(event) {
+      const form = new FormData(event.target);
+      const todo = form.get("addTodo");
+      const id = this.tasks.length + 1;
+
+      const { data } = await api.post({
+        id: id,
+        value: todo,
+        completed: false,
+        task: `task-${id}`,
+      });
+      this.updateTasks([...this.tasks, data]);
+    },
   },
   created() {
     this.fetchAPI();
