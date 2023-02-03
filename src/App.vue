@@ -53,6 +53,10 @@ export default {
   --box-shadow-warning: 0px 2px 6px rgba(243, 216, 127, 0.4);
 }
 
+body {
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
 }
@@ -99,5 +103,23 @@ fieldset {
 
 .mb-40 {
   margin-bottom: 40px;
+}
+
+.message {
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 20px 40px;
+  border-radius: 12px;
+  animation: show-message 0.6s forwards;
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@keyframes show-message {
+  to {
+    bottom: 80px;
+  }
 }
 </style>

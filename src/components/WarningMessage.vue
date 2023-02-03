@@ -1,5 +1,5 @@
 <template>
-  <div class="msg-warning">
+  <div class="message msg-warning">
     {{ message }}
   </div>
 </template>
@@ -20,14 +20,14 @@ export default {
 <style scoped>
 .msg-warning {
   width: auto;
-  font-size: 0.875rem;
-  font-weight: 600;
   color: var(--color-white);
-  padding: 20px 40px;
-  border-radius: 12px;
   background-color: var(--color-warning);
   box-shadow: var(--box-shadow-warning);
-  transition: 0.3s;
   margin-top: 40px;
+  position: relative;
+  bottom: initial;
+  left: initial;
+  transform: initial;
+  animation: none;
 }
 </style>

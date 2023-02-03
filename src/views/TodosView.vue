@@ -42,7 +42,7 @@ export default {
       else if (this.optionTasks === "Active") optionTranlatePT = "ativas";
       else optionTranlatePT = "completas";
 
-      return `Não contém tarefas ${
+      return `Não existe tarefas ${
         this.optionTasks === "All"
           ? `no momento. Adicione uma nova tarefa :)`
           : `${optionTranlatePT}.`
