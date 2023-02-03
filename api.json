@@ -1,19 +1,21 @@
 {
   "todos": [
     {
-      "id": 1,
-      "value": "Fazer exercícios",
-      "completed": true
+      "value": "Fazer exercicios",
+      "completed": true,
+      "id": 1
     },
     {
       "id": 2,
       "value": "Fazer cursos",
-      "completed": false
+      "completed": false,
+      "task": "task-1"
     },
     {
       "id": 3,
       "value": "Desevolver projetos práticos",
-      "completed": false
+      "completed": false,
+      "task": "task-1"
     }
   ]
 }
