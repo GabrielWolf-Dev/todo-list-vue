@@ -9,6 +9,7 @@ export default new Vuex.Store({
     optionTasks: "All",
     tasks: [],
     error: null,
+    success: null,
   },
   getters: {},
   mutations: {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     SET_ERROR(state, payload) {
       state.error = payload;
+    },
+    SET_SUCCESS(state, payload) {
+      state.success = payload;
     },
   },
   actions: {
@@ -51,7 +55,10 @@ export default new Vuex.Store({
 
         context.commit("UPDATE_TASKS", data);
       } catch (error) {
-        context.commit("SET_ERROR", "Não foi possível consumir os dados no servidor");
+        context.commit(
+          "SET_ERROR",
+          "Não foi possível consumir os dados no servidor"
+        );
         console.error(error.message);
 
         setTimeout(() => {
@@ -61,6 +68,9 @@ export default new Vuex.Store({
     },
     setError(context, payload) {
       context.commit("SET_ERROR", payload);
+    },
+    setSuccess(context, payload) {
+      context.commit("SET_SUCCESS", payload);
     },
   },
   modules: {},

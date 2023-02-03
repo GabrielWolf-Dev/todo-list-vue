@@ -28,5 +28,6 @@ export default {
   background-color: var(--color-warning);
   box-shadow: var(--box-shadow-warning);
   transition: 0.3s;
+  margin-top: 40px;
 }
 </style>

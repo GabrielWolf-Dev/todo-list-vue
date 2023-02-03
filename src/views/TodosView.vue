@@ -1,6 +1,6 @@
 <template>
   <div class="todos">
-    <form @submit.prevent="newTodo" v-if="tasks.length !== 0">
+    <form @submit.prevent="newTodo">
       <fieldset class="add-todo">
         <InputText
           name="addTodo"
@@ -11,8 +11,8 @@
       </fieldset>
     </form>
 
+    <TaskList v-if="tasks.length !== 0" />
     <WarningMessage :message="warningMsg" v-else />
-    <TaskList />
   </div>
 </template>
 
@@ -39,8 +39,8 @@ export default {
       let optionTranlatePT;
 
       if (this.optionTasks === "All") optionTranlatePT = "todos";
-      else if (this.optionTasks === "Active") optionTranlatePT = "ativos";
-      else optionTranlatePT = "completos";
+      else if (this.optionTasks === "Active") optionTranlatePT = "ativas";
+      else optionTranlatePT = "completas";
 
       return `Não contém tarefas ${
         this.optionTasks === "All"
