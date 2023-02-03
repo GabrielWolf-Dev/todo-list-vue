@@ -23,7 +23,6 @@ export default {
   color: var(--color-white);
   background-color: var(--color-warning);
   box-shadow: var(--box-shadow-warning);
-  margin-top: 40px;
   position: relative;
   bottom: initial;
   left: initial;

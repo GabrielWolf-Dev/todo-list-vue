@@ -1,6 +1,6 @@
 <template>
   <div class="todos">
-    <form @submit.prevent="newTodo">
+    <form class="mb-40" @submit.prevent="newTodo" v-if="optionTasks !== 'Completed'">
       <fieldset class="add-todo">
         <InputText
           name="addTodo"

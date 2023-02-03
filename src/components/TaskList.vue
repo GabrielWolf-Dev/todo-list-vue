@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-40" :style="{ textAlign: 'right' }">
+  <div :style="{ textAlign: 'right' }">
     <div class="container-task" v-for="task in tasks" :key="task.id">
       <fieldset class="fieldset">
         <input
