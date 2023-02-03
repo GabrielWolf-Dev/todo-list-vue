@@ -1,6 +1,6 @@
 <template>
   <div class="todos">
-    <form @submit.prevent="newTodo">
+    <form @submit.prevent="newTodo" v-if="tasks.length !== 0">
       <fieldset class="add-todo">
         <InputText
           name="addTodo"
@@ -10,7 +10,9 @@
         <ButtonSubmit text="Adicionar" />
       </fieldset>
     </form>
-    <TaskList :tasks="tasks" />
+
+    <WarningMessage :message="warningMsg" v-else />
+    <TaskList />
   </div>
 </template>
 
@@ -21,6 +23,7 @@ import { api } from "@/helpers/api";
 import InputText from "@/components/InputText.vue";
 import ButtonSubmit from "@/components/ButtonSubmit.vue";
 import TaskList from "@/components/TaskList.vue";
+import WarningMessage from "@/components/WarningMessage.vue";
 
 export default {
   name: "TodosView",
@@ -28,9 +31,23 @@ export default {
     InputText,
     ButtonSubmit,
     TaskList,
+    WarningMessage,
   },
   computed: {
-    ...mapState(["tasks"]),
+    ...mapState(["tasks", "optionTasks"]),
+    warningMsg() {
+      let optionTranlatePT;
+
+      if (this.optionTasks === "All") optionTranlatePT = "todos";
+      else if (this.optionTasks === "Active") optionTranlatePT = "ativos";
+      else optionTranlatePT = "completos";
+
+      return `Não contém tarefas ${
+        this.optionTasks === "All"
+          ? `no momento. Adicione uma nova tarefa :)`
+          : `${optionTranlatePT}.`
+      }`;
+    },
   },
   methods: {
     ...mapActions(["fetchAPI", "updateTasks", "setError"]),

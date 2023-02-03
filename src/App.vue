@@ -40,10 +40,12 @@ export default {
   --color-base-4: #333333;
   --color-primary-01: #4b97fa;
   --color-primary-02: #2f80ed;
-  --color-error: #ed2f2f;
+  --color-danger: #EB5757;
+  --color-warning: #e9b442;
 
   --box-shadow-01: 0px 2px 6px rgba(127, 177, 243, 0.4);
-  --box-shadow-error: 0px 2px 6px rgba(243, 127, 127, 0.4);
+  --box-shadow-danger: 0px 2px 6px rgba(243, 127, 127, 0.4);
+  --box-shadow-warning: 0px 2px 6px rgba(243, 216, 127, 0.4);
 }
 
 ul {

@@ -1,33 +1,41 @@
 <template>
-  <div class="mt-40" v-if="tasks">
-    <fieldset class="fieldset" v-for="task in tasks" :key="task.id">
-      <input
-        class="check"
-        type="checkbox"
-        :name="task.task"
-        :id="task.id"
-        :value="task.value"
-        :checked="task.completed"
-        @change="checkTask"
-      />
-      <label
-        class="label"
-        :class="{ 'task--completed': task.completed }"
-        :for="task.id"
-        >{{ task.value }}</label
-      >
-    </fieldset>
+  <div class="mt-40">
+    <div class="container-task" v-for="task in tasks" :key="task.id">
+      <fieldset class="fieldset">
+        <input
+          class="check"
+          type="checkbox"
+          :name="task.task"
+          :id="task.id"
+          :value="task.value"
+          :checked="task.completed"
+          @change="checkTask"
+        />
+        <label
+          class="label"
+          :class="{ 'task--completed': task.completed }"
+          :for="task.id"
+          >{{ task.value }}</label
+        >
+      </fieldset>
+
+      <button class="trash-btn" v-if="optionTasks === 'Completed'">
+        <img class="img-trash" src="@/assets/trash.svg" alt="Trash icon" />
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapActions } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 import { api } from "@/helpers/api";
 
 export default {
   name: "TaskList",
-  props: ["tasks"],
+  computed: {
+    ...mapState(["optionTasks", "tasks"]),
+  },
   methods: {
     ...mapMutations(["UPDATE_TASKS"]),
     ...mapActions(["setError"]),
@@ -47,7 +55,9 @@ export default {
         if (this.$store.state.optionTasks !== "All")
           this.$store.dispatch("removeOldTasks", otherTasks);
       } catch (error) {
-        this.setError("[ERRO NO SERVIDOR] Não foi possível trocar o estado da tarefa");
+        this.setError(
+          "[ERRO NO SERVIDOR] Não foi possível trocar o estado da tarefa"
+        );
         console.error(error.message);
 
         setTimeout(() => {
@@ -60,6 +70,17 @@ export default {
 </script>
 
 <style scoped>
+.container-task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trash-btn {
+  width: 32px;
+  height: 32px;
+}
+
 .fieldset {
   display: flex;
   gap: 8px;

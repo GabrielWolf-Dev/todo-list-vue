@@ -22,8 +22,8 @@ export default {
   color: var(--color-white);
   padding: 20px 40px;
   border-radius: 12px;
-  background-color: var(--color-error);
-  box-shadow: var(--box-shadow-error);
+  background-color: var(--color-danger);
+  box-shadow: var(--box-shadow-danger);
   animation: show-message 0.6s forwards;
   position: absolute;
   bottom: -80px;
