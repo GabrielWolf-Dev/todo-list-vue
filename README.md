@@ -4,7 +4,7 @@ Este projeto é o início de vários outras aplicações que vão ser desenvolvi
 Neste projeto consegui aplicar conceitos básicos do Vue, desde suas diretivas, formas de estilizar, criar componentes, props, gerenciamento de estado com vuex e gerenciar a CLI padrão do Vue.
 
 <div style="width: 100%; text-align: center;">
-  <img width="1280" src="https://raw.githubusercontent.com/GabrielWolf-Dev/todo-list-vue/4a7990c18a5b21d0ee927cec065e352ed1256dbf/src/assets/todo-img.png" alt="Imagem de demonstração do projeto" />
+  <img width="1280" src="https://raw.githubusercontent.com/GabrielWolf-Dev/todo-list-vue/main/src/assets/todo-img.png" alt="Imagem de demonstração do projeto" />
 </div>
 
 ## Como rodar o projeto após o clone do repositório
