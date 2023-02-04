@@ -1,5 +1,5 @@
 <template>
-  <div :style="{ textAlign: 'right' }">
+  <div class="wrapper">
     <div class="container-task" v-for="task in tasks" :key="task.id">
       <fieldset class="fieldset">
         <input
@@ -137,6 +137,9 @@ export default {
 </script>
 
 <style scoped>
+.wrapper {
+  text-align: right;
+}
 .container-task {
   display: flex;
   justify-content: space-between;
@@ -193,5 +196,11 @@ export default {
 
 .delete-all-btn:hover {
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    text-align: center;
+  }
 }
 </style>

@@ -3,9 +3,30 @@
     <h1 class="title mb-40">#todo</h1>
 
     <ul class="list-options">
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'All'}" data-option="All">Todos</li>
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Active'}" data-option="Active">Ativos</li>
-      <li @click="handleOption" class="item-option" :class="{'item-option--active': optionTasks === 'Completed'}" data-option="Completed">Completos</li>
+      <li
+        @click="handleOption"
+        class="item-option"
+        :class="{ 'item-option--active': optionTasks === 'All' }"
+        data-option="All"
+      >
+        Todos
+      </li>
+      <li
+        @click="handleOption"
+        class="item-option"
+        :class="{ 'item-option--active': optionTasks === 'Active' }"
+        data-option="Active"
+      >
+        Ativos
+      </li>
+      <li
+        @click="handleOption"
+        class="item-option"
+        :class="{ 'item-option--active': optionTasks === 'Completed' }"
+        data-option="Completed"
+      >
+        Completos
+      </li>
     </ul>
   </header>
 </template>
@@ -21,14 +42,14 @@ export default {
   methods: {
     handleOption(event) {
       const { option } = event.currentTarget.dataset;
-      
+
       this.$store.dispatch("filterTasks", option);
     },
   },
   watch: {
     optionTasks() {
       this.$store.dispatch("fetchAPI");
-    }
+    },
   },
 };
 </script>
@@ -66,5 +87,17 @@ export default {
 
 .item-option--active {
   border-bottom: 2px solid var(--color-primary-02);
+}
+
+@media (max-width: 768px) {
+  .list-options {
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+  }
+
+  .item-option--active {
+    background-color: #f0f0f0;
+  }
 }
 </style>

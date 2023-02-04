@@ -1,6 +1,10 @@
 <template>
   <div class="todos">
-    <form class="mb-40" @submit.prevent="newTodo" v-if="optionTasks !== 'Completed'">
+    <form
+      class="mb-40"
+      @submit.prevent="newTodo"
+      v-if="optionTasks !== 'Completed'"
+    >
       <fieldset class="add-todo">
         <InputText
           name="addTodo"
@@ -88,11 +92,20 @@ export default {
   height: 100%;
   padding-top: 12px;
   overflow-y: auto;
+  padding: 0 2%;
 }
 
 .add-todo {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .add-todo {
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 </style>

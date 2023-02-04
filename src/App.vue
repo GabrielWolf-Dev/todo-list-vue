@@ -53,6 +53,19 @@ export default {
   --box-shadow-warning: 0px 2px 6px rgba(243, 216, 127, 0.4);
 }
 
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-base-4);
+  border-radius: 12px;
+}
+
 body {
   overflow: hidden;
 }
@@ -120,6 +133,13 @@ fieldset {
 @keyframes show-message {
   to {
     bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    text-align: center;
   }
 }
 </style>

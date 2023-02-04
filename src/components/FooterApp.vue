@@ -29,4 +29,10 @@ export default {
   font-weight: 700;
   color: var(--color-base-2);
 }
+
+@media (max-width: 768px) {
+  .footer {
+    width: 100%;
+  }
+}
 </style>
